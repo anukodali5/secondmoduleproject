@@ -22,7 +22,14 @@ public class ProfilePage extends BasePage {
 	// page actions
 
 	public boolean verifyProfilenameIsCorrect(String expectedUsername) {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		By profileNameFullXpath = By.xpath(String.format(profileName, expectedUsername));
+		
 
 		return isElementPresent(profileNameFullXpath);
 	}
