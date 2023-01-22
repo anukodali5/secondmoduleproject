@@ -13,6 +13,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.ProfilePage;
@@ -40,6 +41,7 @@ public abstract class BaseTest {
 		options.addArguments("-–no-sandbox");
 		options.addArguments("window-size=1200,1100");
 
+		WebDriverManager.chromedriver().setup();
 		// driver.set(new ChromeDriver(options));
 		try {
 			driver.set(new RemoteWebDriver(new URL(" http://localhost:4444/wd/hub"), options));
@@ -71,4 +73,3 @@ public abstract class BaseTest {
 		driver.get().quit();
 	}
 
-}
