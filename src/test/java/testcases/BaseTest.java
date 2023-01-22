@@ -5,7 +5,7 @@ package testcases;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -48,7 +48,7 @@ public abstract class BaseTest {
 			e.printStackTrace();
 		}
 		driver.get().manage().window().maximize();
-		driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// launch our application
 		// driver.get().get("https://testautomasi.com");
 		driver.get().get(DataUtils.getTestData("Config", "BaseUrl"));
